@@ -1,0 +1,126 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% eXascale Infolab thesis template -- Bachelor and Masters
+% version 1.1, Oct 2019
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Based on:
+% Masters/Doctoral Thesis
+% LaTeX Template Version 2.5 (27/8/17)
+% http://www.LaTeXTemplates.com
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[11pt,english,singlespacing,headsepline,consistentlayout]{structure/XI_thesis}
+
+%----------------------------------------------------------------------------------------
+%	LATEX PACKAGES
+%----------------------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% DO NOT EDIT
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+\usepackage{mathpazo} % Use the Palatino font by default
+\usepackage[backend=bibtex,style=authoryear,natbib=true]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
+\usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{array}          % custom sizes for table columns
+\usepackage{amssymb}        % extended blackboard math symbols
+\usepackage{amsmath}        % complete AMS math package
+% \usepackage[english]{babel} % spelling / syllabification
+\usepackage{algorithm}      % pseudocode float
+\usepackage[noend]{algpseudocode}  % pseudocode macros
+\usepackage{graphicx}       % include graphics
+\usepackage{subcaption}     % sub captions
+\usepackage{url}            % URLs
+%%%%%%%%%%%%%%%%%%%%%%%%%%% DO NOT EDIT - end
+
+
+%% User packages
+% \usepackage{add here}
+% Include your package settings in `structure/settings.tex`
+
+
+% Load package settings
+\input{structure/settings.tex}
+% Load custom thesis information (remember to fill in)
+\input{structure/info.tex}
+% Set title, author and keywords on the compiled PDF
+\AtBeginDocument{
+  \hypersetup{pdftitle=\ttitle} % Set the PDF's title to your title
+  \hypersetup{pdfauthor=\authorname} % Set the PDF's author to your name
+  \hypersetup{pdfkeywords=\keywordnames} % Set the PDF's keywords to your keywords
+}
+
+%----------------------------------------------------------------------------------------
+\begin{document}
+\frontmatter
+\pagestyle{plain}
+% Title page definition
+\input{structure/title.tex}
+% Include declaration page -- not necessary for Bachelor and Masters
+% \input{declaration.tex}
+\cleardoublepage
+
+%----------------------------------------------------------------------------------------
+%	QUOTATION PAGE
+%----------------------------------------------------------------------------------------
+% Include only in the final submission, after the defense and all required corrections
+
+%\vspace*{0.2\textheight}
+%\noindent\enquote{\itshape Quote here}\bigbreak
+
+
+%----------------------------------------------------------------------------------------
+%   ABSTRACT PAGE
+%----------------------------------------------------------------------------------------
+\begin{abstract}
+\addchaptertocentry{\abstractname} % Add the abstract to the table of contents
+\input{chapters/abstract}
+\vfill
+\begin{center}
+\textbf{Keywords:}~\keywordnames
+\end{center}
+\end{abstract}
+
+
+%----------------------------------------------------------------------------------------
+%	LIST OF CONTENTS/FIGURES/TABLES + TRANSITION PAGES
+%----------------------------------------------------------------------------------------
+\hypersetup{linkcolor=black}
+\tableofcontents % Prints the main table of contents
+\listoffigures % Prints the list of figures
+\mainmatter % Begin numeric (1,2,3...) page numbering
+\pagestyle{thesis} % Return the page headers back to the "thesis" style
+
+
+%----------------------------------------------------------------------------------------
+%	THESIS CONTENT - CHAPTERS
+%----------------------------------------------------------------------------------------
+
+% Include here the chapters of the thesis
+% Comment/uncomment the lines to find bugs and compile faster during writing
+\include{structure/template_intro} % comment this out
+% \include{chapters/introduction}
+% \include{chapters/ ...}
+% \include{chapters/conclusions}
+
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+\printbibliography[heading=bibintoc]
+
+
+%----------------------------------------------------------------------------------------
+%   APPENDIX
+%----------------------------------------------------------------------------------------
+% Rarely required, only if extra material particularly voluminous
+% \include{chapters/appendix}
+
+
+%----------------------------------------------------------------------------------------
+\end{document}
+% That's all folks

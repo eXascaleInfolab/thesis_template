@@ -1,0 +1,127 @@
+% !TEX root = ../main.tex
+
+\chapter{Chapter Title Here} % Main chapter title
+\label{ch:name} % For referencing the chapter elsewhere, use \ref{ch:name}
+
+%----------------------------------------------------------------------------------------
+
+% Defining formatting commands enables consistency and separation
+\newcommand{\keyword}[1]{\textbf{#1}}
+\newcommand{\tabhead}[1]{\textbf{#1}}
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\file}[1]{\texttt{\bfseries#1}}
+\newcommand{\option}[1]{\texttt{\itshape#1}}
+
+%----------------------------------------------------------------------------------------
+
+This introductory file has been edited. Please find the complete version on \url{http://www.latextemplates.com}.
+
+Remember to keep your editor's spell checker always on. The preferred spelling is American English; using British English word spelling is accepted only if consistent throughout the thesis.
+
+An invaluable resource when grasping for words is \url{www.thesaurus.com}. If a sentence comes more natural in another language, consider using \url{www.deepl.com} for translation as the result is typically of higher quality than Google Translate.
+
+\section{References}
+
+The \code{biblatex} package is used to format the bibliography and inserts references such as this one \citep{Reference1}. Use \verb|\citet| for textual citations and \verb|\citep| to wrap them in parenthesis (check the source for this text). % more here: https://en.wikibooks.org/wiki/LaTeX/More_Bibliographies#Basic_Citation_Commands
+Multiple references are separated by semicolons (e.g. \citet{Reference2, Reference1}) and references with more than three authors only show the first author with \emph{et al.} indicating there are more authors (e.g. \citet{Reference3}). This is done automatically for you.
+
+Scientific references should come \emph{before} the punctuation mark if there is one (such as a comma or period). The same goes for footnotes\footnote{Such as this footnote, here down at the bottom of the page.}.
+
+\subsection{A Note on bibtex}
+
+The bibtex backend used in the template by default does not correctly handle unicode character encoding (i.e. "international" characters). You may see a warning about this in the compilation log and, if your references contain unicode characters, they may not show up correctly or at all. The solution to this is to use the biber backend instead of the outdated bibtex backend. This is done by finding this command: \option{backend=bibtex} and changing it to \option{backend=biber}. You will then need to delete all auxiliary BibTeX files and navigate to the template directory in your terminal (command prompt). Once there, simply type \code{biber main} and biber will compile your bibliography. You can then compile \file{main.tex} as normal and your bibliography will be updated. An alternative is to set up your LaTeX editor to compile with biber instead of bibtex, see \href{http://tex.stackexchange.com/questions/154751/biblatex-with-biber-configuring-my-editor-to-avoid-undefined-citations/}{here} for how to do this for various editors.
+
+\section{Tables}
+
+Check the source for an example of the required table style.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[h!] % positioning: here, enforced
+\caption[Example]{%
+  \textbf{Caption.}
+  After a useful title, the caption should describe the figure by itself. A reader should know everything about this table (or figure) without having to look for its description in the text.
+}
+\label{tab:example}
+\center
+\begin{tabular}{m{25mm}lllll}
+  \toprule
+  & longer one & short & short & short & \textbf{bold} \\
+  \midrule
+  \# label 1       & {\textasciitilde{}}3034 & {\textasciitilde{}}650 & {\textasciitilde{}}650  & {\textasciitilde{}}650  & \textbf{{\textasciitilde{}}18} \\
+  \# longer label & 2 & 3 & 3 & 3 & \textbf{0} \\
+  \# label 3   & {\textasciitilde{}}906k & {\textasciitilde{}}436k & {\textasciitilde{}}436k & {\textasciitilde{}}436k & \textbf{{\textasciitilde{}}}\textbf{3k}\\
+  \bottomrule
+  \end{tabular}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+You can reference tables with \verb|Table~\ref{<label>}| where the label is defined within the table environment, see source of Table~\ref{tab:example}.
+
+\section{Figures}
+
+Same as Tables, check source for example. Keep all figures in the \verb|figures| folder. Strongly prefer vectorial image types (e.g.\ SVG) embedded into PDFs, over high-resolution lossless (e.g.\ PNG), over very-high-resolution lossy (e.g.\ JPG).
+
+\begin{figure}[ht]
+\centering
+\decoRule\\ % avoid using these horizontal lines if you can
+\includegraphics[width=0.5\textwidth]{deleteme}
+\decoRule\\ % avoid using these horizontal lines if you can
+\caption[Electron]{%
+  \textbf{An electron.}
+  Artist's impression.
+}
+\label{fig:electron}
+\end{figure}
+
+Sometimes figures don't always appear where you write them in the source. The placement depends on how much space there is on the page for the figure. Sometimes there is not enough room to fit a figure directly where it should go (in relation to the text) and so \LaTeX{} puts it at the top of the next page. Positioning figures is the job of \LaTeX{} and so you should only worry about making them look good!
+
+Figures should have captions (such as in Figure~\ref{fig:electron}). The \verb|\caption| command contains two parts, the first part, inside the square brackets is the title that will appear in the \emph{List of Figures}, and so should be short. The second part in the curly brackets should contain the longer and more descriptive caption text.
+
+The \verb|\decoRule| command is optional and simply puts an aesthetic horizontal line below the image. Avoid if possible, consider wrapping the image in a \verb|\mbox| for borders instead
+
+
+\section{Typesetting mathematics}
+
+The \enquote{Not So Short Introduction to \LaTeX} (available on \href{http://www.ctan.org/tex-archive/info/lshort/english/lshort.pdf}{CTAN}) should tell you everything you need to know for most cases of typesetting mathematics. If you need more information, a much more thorough mathematical guide is available from the AMS called, \enquote{A Short Math Guide to \LaTeX} and can be downloaded from:
+\url{ftp://ftp.ams.org/pub/tex/doc/amsmath/short-math-guide.pdf}
+
+There are many different \LaTeX{} symbols to remember, luckily you can find the most common symbols in \href{http://ctan.org/pkg/comprehensive}{The Comprehensive \LaTeX~Symbol List}.
+
+You can write an equation, which is automatically given an equation number by \LaTeX{} like this:
+\begin{verbatim}
+\begin{equation}
+E = mc^{2}
+\label{eqn:Einstein}
+\end{equation}
+\end{verbatim}
+
+This will produce Einstein's famous energy-matter equivalence equation:
+\begin{equation}
+E = mc^{2}
+\label{eqn:Einstein}
+\end{equation}
+
+All equations you write (which are not in the middle of paragraph text) are automatically given equation numbers by \LaTeX{}. If you don't want a particular equation numbered, use the unnumbered form:
+\begin{verbatim}
+\[ a^{2}=4 \]
+\end{verbatim}
+
+%----------------------------------------------------------------------------------------
+
+\section{Sectioning and Subsectioning}
+
+You should break your thesis chapters into useful sections and subsections. \LaTeX{} automatically builds a table of Contents by looking at all the \verb|\chapter{}|, \verb|\section{}|  and \verb|\subsection{}| commands you write in the source.
+
+%----------------------------------------------------------------------------------------
+
+\section{In Closing}
+
+For the final submission, generate the pdf then search it for question marks (\verb|?|). Sometimes latex misses a reference or citation and adds a question mark to fill it. Make sure to fix them all before your submission.
+
+Good luck and have fun!
+
+\begin{flushright}
+Guide written by ---\\
+Sunil Patel: \href{http://www.sunilpatel.co.uk}{www.sunilpatel.co.uk}\\
+Vel: \href{http://www.LaTeXTemplates.com}{LaTeXTemplates.com}\\
+\end{flushright}
